@@ -1,9 +1,22 @@
 /* ASSINGING COLOR VARS AND FONT FAMILY */
 :root {
-  --black: #272727;
+  --black: #070507;
   --white: #e5e5e5;
   --blue: #1089ff;
   --green: #50d890;
+}
+
+@font-face {
+  font-family: ig-regular;
+  src: url(../assets/fonts/glacial-indifference/GlacialIndifference-Regular.otf);
+}
+@font-face {
+  font-family: ig-italic;
+  src: url(../assets/fonts/glacial-indifference/GlacialIndifference-Italic.otf);
+}
+@font-face {
+  font-family: ig-bold;
+  src: url(../assets/fonts/glacial-indifference/GlacialIndifference-Bold.otf);
 }
 
 /* BACKGROUND */
@@ -13,53 +26,31 @@ body {
   padding: 0;
   margin: 0;
 }
+body {
+  overflow: visible !important;
+  font-family: "ig-regular", Arial, Helvetica, sans-serif;
+}
 
 /* LOADER */
-#loadingDiv {
-  position: absolute;
-  top: 0;
-  left: 0;
+#loader {
   width: 100%;
-  height: 100%;
-  background-color: #000;
-}
-
-/* NAVBAR */
-.navbar,
-.navbar-expand-sm,
-.nav-masthead {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-.navbar-collapse {
+  background: var(--black);
+  display: flex;
   justify-content: center;
-}
-.nav-masthead .nav-link {
-  font-weight: 48;
-  color: var(--white);
-  background-color: transparent;
-  font-family: "GlacialIndifferenceRegular";
+
+  /* align-items: center; */
 }
 
-.nav-link:hover {
-  border-bottom: 0.1rem solid var(--green);
+#loadingDiv {
+  margin: 0;
+  padding-top: 6em;
+  text-align: center;
+  width: 50% !important;
+  background-color: var(--black);
+  overflow: hidden !important ;
 }
 
-.nav-link.active,
-.nav-link:focus {
-  color: var(--blue);
-  outline: none;
-}
-
-.navbar-toggler-icon {
-  background: var(--white) !important;
-}
-
-.navbar-toggler {
-  text-emphasis: none;
-}
-
+/* CLOCK ANIMANTION */
 #clockdiv {
   font-family: sans-serif;
   color: #fff;
@@ -77,7 +68,7 @@ body {
 }
 
 #clockdiv div > span {
-  padding: 15px;
+  padding: 8.5px;
   border-radius: 3px;
   background: var(--black);
   display: inline-block;
@@ -87,8 +78,24 @@ body {
   padding-top: 5px;
   font-size: 16px;
 }
+/* CURSOR PARALLEX */
+.data-tilt {
+  display: flex;
+  justify-content: center;
+  background-color: transparent !important;
+  height: 100%;
+  width: 50%;
+  transform-style: preserve-3d;
+  transform: translateZ(50px);
+}
+@media only screen and (max-width: 1620 px) {
+  .data-tilt {
+    width: 40%;
+  }
+}
 /* REGISTER BUTTON */
 .register {
+  z-index: 2 !important;
   display: inline-block;
   margin: auto;
   padding: 16px 24px 17px;
@@ -100,13 +107,33 @@ body {
   font-size: larger;
   font-weight: 800;
   text-decoration: none;
-  font-family: "GlacialIndifferenceRegular";
+  font-family: "ig-regular";
 }
 .register:hover {
   background-color: var(--white);
   text-decoration: none;
 }
-
+/* AUDIO BUTTON */
+.audio {
+  z-index: 2 !important;
+  margin: auto;
+  padding: 16px 24px 17px;
+  border: none;
+  outline: none !important;
+}
+#audio-btn {
+  width: 30px !important;
+}
+.audio-btn-container {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.audio-btn-container > p {
+  color: var(--white);
+  font-family: "ig-regular";
+  margin: 2px 0px;
+}
 /* LANDING PAGE IMAGES */
 .intro {
   display: flex;
@@ -115,7 +142,9 @@ body {
   align-items: center;
   background-color: var(--black);
 }
+
 .intro img {
+  z-index: -10 !important;
   width: 50%;
 }
 
@@ -124,11 +153,13 @@ body {
   display: flex;
   flex-wrap: wrap;
   border-color: var(--black);
+  background-color: transparent !important;
   align-items: center;
   justify-content: center;
 }
 .typewriter > span {
   color: var(--blue);
+  background-color: transparent !important;
 }
 
 .typewriter {
@@ -136,7 +167,7 @@ body {
   font-size: 30px;
   color: var(--white);
   text-align: center;
-  font-family: "GlacialIndifferenceRegular";
+  font-family: "ig-regular";
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
@@ -181,11 +212,20 @@ body {
 
 /* RESPONSIVE MEDIA  */
 @media only screen and (max-width: 700px) {
+  #loadingDiv {
+    padding-top: 10em !important;
+  }
+  .audio-btn-container > p {
+    font-size: 0.6rem;
+  }
   .intro {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     /* align-items: center; */
+  }
+  .nav-link {
+    padding-right: 3rem !important;
   }
   .intro img {
     width: 80%;
@@ -204,5 +244,29 @@ body {
     padding: auto auto auto;
     font-weight: 400;
     font-size: 15px;
+  }
+  .data-tilt {
+    width: 80%;
+  }
+  #clockdiv {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    font-size: 20px;
+  }
+
+  #clockdiv > div {
+    padding: 5px;
+    font-size: 20px;
+  }
+
+  #clockdiv div > span {
+    padding: 10px;
+  }
+
+  .smalltext {
+    width: 50%;
+    font-size: 15px;
+    text-align: center;
   }
 }
