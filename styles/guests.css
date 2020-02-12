@@ -42,7 +42,10 @@ h1 {
 }
 .profile-img {
   border-radius: 50%;
+  width: 70%;
+  height: auto;
 }
+
 p {
   font-size: 1.2rem;
   font-weight: bold;
