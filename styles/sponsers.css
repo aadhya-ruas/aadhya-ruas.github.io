@@ -26,6 +26,7 @@ body {
   font-family: "ig-regular";
   background-color: var(--black);
   color: var(--white);
+  margin-bottom: 16em;
 }
 h1 {
   color: var(--blue);
@@ -40,6 +41,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  justify-content: center;
 }
 .profile-img {
   /* border-radius: 50%; */
@@ -73,9 +75,7 @@ p {
   animation-name: animatebottom;
   animation-duration: 1s;
 }
-body {
-  overflow-y: hidden;
-}
+
 .guest-box:hover {
   transform: scale(1.5);
   transition-duration: 1s;
@@ -109,8 +109,5 @@ body {
   }
   .guest-box {
     margin: 3em;
-  }
-  body {
-    overflow-y: auto;
   }
 }
